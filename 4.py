@@ -1,5 +1,3 @@
-from util.printer import Printer
-
 file = open("input/4.sam", "r")
 lines = file.readlines()
 
