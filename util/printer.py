@@ -7,5 +7,5 @@ class Printer:
     def print_grid(grid):
         for row in grid:
             for e in row:
-                print(e + " ", end='')
+                print(str(e) + " ", end='')
             print()
