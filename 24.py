@@ -3,15 +3,13 @@ import functools
 file = open("input/24.sam", "r")
 lines = file.readlines()
 
-# only var that matters is z, rest are local vars (I think?)
-
+# only var that matters is z, rest are local vars
 @functools.lru_cache(maxsize=None)
 def solve(i=0,z=0):
     if i<100:
         print("I:",i)
         print("Z:",z)
-        print(solve.cache_info())
-    #for n in range(9,0,-1):        
+        print(solve.cache_info())      
     for n in range(1,10):
         vars={'w':0,'x':0,'y':0,'z':z}
         vars[lines[i].strip().split(" ")[1]] = n # when coming here, next instruction is always input
@@ -31,7 +29,6 @@ def solve(i=0,z=0):
                 if r is not None:
                     return str(n) + r
                 break
-                #vars[a]=v
             elif instr=="add":
                 vars[a] = vars[a] + vars[b]
             elif instr=="mul":
@@ -45,11 +42,6 @@ def solve(i=0,z=0):
             elif instr=="eql":
                 vars[a]=1 if vars[a]==vars[b] else 0
         
-        #print(x)
-        '''if x >= len(lines)-1:
-            if vars['z'] == 0:
-                print("ZOMG")
-            return None if vars['z'] != 0 else str(n)'''
         if x >= len(lines)-1 and vars['z'] == 0:
             return str(n)
     return None
