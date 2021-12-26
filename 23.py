@@ -37,7 +37,7 @@ def free_spot_in_room(c, state):
     for t in pod_targets[c].__reversed__():
         if state[t] == '.':
             return t
-    return -1 # shouldn't have called this...
+    return -1
 
 def pod_in_place(state,i,c):
     for t in pod_targets[c].__reversed__():
